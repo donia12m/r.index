@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تهنئة رمضان</title>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        overflow: hidden;
+        font-family: 'Arial', sans-serif;
+        background: radial-gradient(circle at top, #001, #003366);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* النجوم */
+    .star {
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background: #fff;
+        border-radius: 50%;
+        animation: twinkle 2s infinite alternate;
+    }
+
+    @keyframes twinkle {
+        from {opacity: 0.2;}
+        to {opacity: 1;}
+    }
+
+    /* بطاقة التهنئة */
+    .card {
+        position: relative;
+        background: rgba(255, 255, 255, 0.15);
+        padding: 50px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        z-index: 10;
+    }
+
+    .card h1 {
+        color: #ffeb3b;
+        font-size: 3em;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 5px #000;
+    }
+
+    .card p {
+        color: #fff;
+        font-size: 1.8em;
+    }
+
+    /* الفوانيس */
+    .lantern {
+        position: absolute;
+        width: 30px;
+        height: 70px;
+        background: gold;
+        border-radius: 10px;
+        top: 100%;
+        animation: floatUp linear infinite;
+    }
+
+    .lantern::before {
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: 15px;
+        background: #ffa500;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 50%;
+    }
+
+    @keyframes floatUp {
+        0% {transform: translateY(0);}
+        100% {transform: translateY(-120vh);}
+    }
+</style>
+</head>
+<body>
+
+<!-- بطاقة التهنئة -->
+<div class="card">
+    <h1>محمد</h1>
+    <p>مبارك عليك الشهر 🌙✨</p>
+</div>
+
+<!-- نجوم -->
+<script>
+    // إنشاء نجوم عشوائية
+    for(let i=0;i<100;i++){
+        let star = document.createElement('div');
+        star.className = 'star';
+        star.style.top = Math.random()*100 + '%';
+        star.style.left = Math.random()*100 + '%';
+        star.style.width = star.style.height = Math.random()*2 + 1 + 'px';
+        star.style.animationDuration = (Math.random()*2+1) + 's';
+        document.body.appendChild(star);
+    }
+
+    // إنشاء فوانيس عشوائية تتحرك للأعلى
+    for(let i=0;i<15;i++){
+        let lantern = document.createElement('div');
+        lantern.className = 'lantern';
+        lantern.style.left = Math.random()*100 + '%';
+        lantern.style.width = (20 + Math.random()*20) + 'px';
+        lantern.style.height = (50 + Math.random()*50) + 'px';
+        lantern.style.animationDuration = (5 + Math.random()*5) + 's';
+        lantern.style.animationDelay = Math.random()*5 + 's';
+        document.body.appendChild(lantern);
+    }
+</script>
+
+</body>
+</html>
